@@ -1,0 +1,40 @@
+/* Begin twitter bird */
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+#reqTweet:hover {color:rgba(0,0,0,.5);}
+#reqTweet:hover {color:rgba(85, 172, 238,.9);}
+/* End twitter bird */
+
+/* Button: request quote of the day */
+#reqQOD:hover {color:rgba(0,0,0,.5);}
+#reqQOD:hover {color:rgba(181, 33, 38,.9);}  
+
+
+#QOD-image {
+    height: 400px;
+    width: 600px;
+    background-image: url(https://theysaidso.com/img/bgs/swim.jpg);
+}
+
+#alt1_QOD{
+    display: none;  
+}
+
+#test-message {
+    /*for ddm debugDisplayMessage*/
+    position: fixed;
+    top: 68px;
+    right: 0;
+    width: 400px;
+    height: auto;
+    border: 3px solid #3E3F3A;
+    background-color: #e5e5cc;
+    z-index: 2;
+    display: none;
+}
+
