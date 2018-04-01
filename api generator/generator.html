@@ -1,0 +1,99 @@
+<html>
+ <!-- Original reference
+        https://codepen.io/TestingWithJasmine/pen/bhvCL
+      Theme:
+        https://bootswatch.com/sandstone/
+--> 
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/jasmine.min.css"/>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/jasmine.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/jasmine-html.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/boot.min.js"></script>
+  </head>
+
+  <div id="whole-page">        
+     <!-- navbar ---------------------------------------- -->   
+      <div class="navbar navbar-default navbar-fixed-top">
+        <!-- https://getbootstrap.com/examples/navbar-fixed-top/ -->
+       <div class="container">
+         <button aria-expanded="false" class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-main"><!-- Small responsive menu :) -->
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+ 
+         <div class="navbar-collapse collapse" id="navbar-main">          
+         <ul class="nav navbar-nav">
+           <li role="presentation">
+           <a href="https://theysaidso.com/" target="_blank">
+             <img src="https://theysaidso.com/branding/theysaidso.png" style="height:25px; width:25px" title="theysaidso">
+           </a>
+         <li>       
+       
+         <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Alternates <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+       <li role="presentation">
+         <a href="http://www.brainyquote.com/quotes_of_the_day.html" target="_blank">brainyquote</a>
+       </li>
+      <li role="presentation">
+         <a href="http://www.quotes-day.com/" target="_blank">quotes-day</a>        
+      </li>
+       <li role="presentation">
+          <a href="http://www.quotationspage.com/qotd.html/" target="_blank">quotationspage</a>        
+      </li>
+    </ul>
+  </li>
+       <li role="presentation">
+         <a href="https://en.wikipedia.org/wiki/QOTD" target="_blank" title="QOTD definition">Wikipedia</a>
+      </li>
+       </ul><!-- /nav-tabs -->
+       </div><!-- /navbar-collaps -->   
+       </div><!-- /continer -->  
+     </div><!-- /navbar -->   
+     <!-- ---------------------------------------- -->   
+
+    <div style="height: 25px"></div><!--spacer fix start of body text  -->
+    <div class="well">
+      <h3>
+        <a href="https://theysaidso.com/api/" target="_blank" style="color:#B52126">They Said So</a> Famous Quotes API
+      </h3>
+      <h4>
+        We have a huge collection of quotes in our database
+      <h4>
+     </div><!-- /well -->
+
+       <div style="container-fluid">
+      <!-- Quote of the day -->
+         <div class="row">
+            <div class="col-md-4">
+                    <button id="reqQOD" class="btn btn-default btn-lg" type="submit" style="float: right" title="Request new quote of the day">New QOD</button>
+              
+                    <button id="reqTweet" class=" entypo-twitter btn btn-default btn-lg" type="submit" style="float: right; margin-right: 5px" title="Tweet" data-href="https://twitter.com/intent/tweet" data-text="text=button option tweet-text here" data-url="url=https://codepen.io/NorthDecoder/pen/PNqVxB" data-hashtags="hashtags=qod"></button>
+           </div>
+            <div class="col-md-8">
+                    <p id="QOD"></p>
+                    <div id="alt1_QOD">
+                      <script type="text/javascript" src="http://www.brainyquote.com/link/quotebr.js"></script>
+                      <small><i><a href="http://www.brainyquote.com/quotes_of_the_day.html" target="_blank">more Quotes</a></i></small>
+                    </div>
+                    <img  id="QOD-image" class="img-responsive img-rounded" src="https://theysaidso.com/img/bgs/swim.jpg">
+           </div>
+         </div><!-- /row -->
+      </div><!-- /container-fluid -->
+
+      <!-- For debugging -->  
+      <div id="test-message">Enter a debug message at id=test-message</div>
+
+        <!-- Attribution ~~~~~~~~~~~~~~~~~~  -->
+     <span style="z-index:50;font-size:0.9em;"><img src="https://theysaidso.com/branding/theysaidso.png" height="20" width="20" alt="theysaidso.com"/><a href="https://theysaidso.com" title="Powered by quotes from theysaidso.com" style="color: #9fcc25; margin-left: 4px; vertical-align: middle;">theysaidso.com</a></span>        
+     <!-- /Attribution ~~~~~~~~~~~~~~~~~~  -->
+    
+    
+    
+    <hr>
+  </div><!-- /whole-page -->
+
+</html>
