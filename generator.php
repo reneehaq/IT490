@@ -1,3 +1,13 @@
+<?php
+session_start();
+ini_set("display_errors", 0);
+ini_set("log_errors",1);
+ini_set("error_log", "/tmp/error.log");
+error_reporting( E_ALL & ~E_DEPRECATED & ~E_STRICT);
+if (!isset($_SESSION["user"])){
+ header( "Refresh:1; url=login.html", true, 303);
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,17 +29,13 @@
 
     <!-- Custom styles for this template -->
     <link href="bootstrap/css/business-casual.min.css" rel="stylesheet">
-    <style>
-
-</style>
-
 
   </head>
 
   <body>
 
     <h1 class="site-heading text-center text-white d-none d-lg-block">
-      <span class="site-heading-upper text-primary mb-3"> Welcome To Our Page! </span>
+      <span class="site-heading-upper text-primary mb-3"> Welcome To Our Page!</span>
       <span class="site-heading-lower"> Come To Us For Your Quote Needs </span>
     </h1>
 
@@ -43,66 +49,46 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="index.html">Home
+              <a class="nav-link text-uppercase text-expanded" href="generator.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="generator.html">Generator</a>
-            </li>
             <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="login.html">Login</a>
+              <a class="nav-link text-uppercase text-expanded" href="favourite.php">Favourites </a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="signup.html">Sign Up</a>
+              <a class="nav-link text-uppercase text-expanded" href="friends.php"> Friends </a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="logout.php"> Log Out </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-<center>
-    <section class="page-section">
+    <section class="page-section about-heading">
       <div class="container">
-        <div class="product-item">
-          <div class="product-item-title d-flex">
-
-              <h2 class="section-heading mb-0">
-                <span class="section-heading-upper"></span>
-                <span class="section-heading-lower"></span>
-              </h2>
-            </div>
-          </div>
-          <center>
-          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="img/products-01.jpg" alt="">
-          <div class="product-item-description d-flex mr-auto">
-            <div class="bg-faded p-5 rounded">
-              <font color="white">................................................................................................................................................................................................................................................................ </font>
-              <p class="mb-0"> <font size="6">  Login Here To Access Your Account! </font> </p>
-            </center>
+        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="http://bootstrap/img/about.jpg" alt="">
+        <div class="about-heading-content">
+          <div class="row">
+            <div class="col-xl-9 col-lg-10 mx-auto">
+              <div class="bg-faded rounded p-5">
+                <h2 class="section-heading mb-4">
+                  <br>
+                  <p>
+                    <p>
+                  <center> <span class="section-heading-lower"> Generator </span>
+                  <span class="section-heading-upper">
+<a href="category.php">Category</a>&nbsp&nbsp&nbsp&nbsp<a href="qod.php">Quote of the Day</a>
+                   </span> </center>
+                </h2>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  </center>
-          <fieldset>
-            <center>
-                  <form action="login.php" method="POST">
-                  <div id="user">
-                <p>  <input type=text autocomplete=off placeholder = "username" name="user" required>&nbsp<br>
-                  </div>
-                  <div id="password">
-                <p>  <input type=text autocomplete=off placeholder = "password" name="password" required>&nbsp<br>
-                  </div>
-                  
-                  <div id="button">
-                  <input type = submit>
-                  </div>
-                  </form>
-                </center>
-          </fieldset>
-
 
     <footer class="footer text-faded text-center py-5">
       <div class="container">

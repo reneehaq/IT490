@@ -4,9 +4,9 @@ ini_set("display_errors", 0);
 ini_set("log_errors",1);
 ini_set("error_log", "/tmp/error.log");
 error_reporting( E_ALL & ~E_DEPRECATED & ~E_STRICT);
-if (!isset($_SESSION["user"])){
- header( "Refresh:1; url=login.html", true, 303);
- }
+//if (!isset($_SESSION["user"])){
+ //header( "Refresh:1; url=login.html", true, 303);
+ //}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +29,24 @@ if (!isset($_SESSION["user"])){
 
     <!-- Custom styles for this template -->
     <link href="bootstrap/css/business-casual.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+  <script>
+  function f(){
+
+  var ins=document.getElementById('category');
+  var cat = ins.value;
+  alert(cat);
+
+var resource_url = 'searchC.php?cat=' + cat;
+$.get(resource_url, function (data) {
+    //data: { meta: {<metadata>}, data: {<array[Practice]>} }
+     var template = Handlebars.compile(document.getElementById('docs-template').innerHTML);
+      document.getElementById('content-placeholder').innerHTML = template(data);
+  });
+}
+
+  </script>
 
   </head>
 
@@ -49,9 +67,12 @@ if (!isset($_SESSION["user"])){
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="index.html">Home
+              <a class="nav-link text-uppercase text-expanded" href="generator.php">Home
                 <span class="sr-only">(current)</span>
               </a>
+            </li>
+            <li class="nav-item active px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="qod.php">QOD </a>
             </li>
             <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="favourite.php">Favourites </a>
@@ -80,13 +101,48 @@ if (!isset($_SESSION["user"])){
                     <p>
                   <center> <span class="section-heading-lower"> Generator </span>
                   <span class="section-heading-upper">
-<a href="category.php">Category</a>&nbsp&nbsp&nbsp&nbsp<a href="qod.php">Quote of the Day</a>
+                    <form>
+                      <select id="category">
+
+                            <option value="inspire">Inspire</option>
+                            <option value="management">Management</option>
+                            <option value="sports">Sports</option>
+                            <option value="life">Life</option>
+                            <option value="funny">Funny</option>
+                            <option value="love">Love</option>
+                            <option value="art">Art</option>
+                            <option value="students">Students</option>
+                            <input type=button onclick="f()" value="submit">
+                      </select>
+                    </form>
                    </span> </center>
                 </h2>
+                <div id="content-placeholder"></div>
+                <script id="docs-template" type="text/x-handlebars-template">
+                    <table>
+                        <thead>
+                            <th>Quote</th>
+                        </thead>
+                        <tbody>
+
+                        <tr>
+                          {{#contents.quotes}}
+                          <td>{{quote}}</td>
+                        </tr>
+                        <tr>
+                          <td><a href="save.php?quote={{quote}}" target="_new">Save</a><br></td>
+                              {{/contents.quotes}}
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </script>
               </div>
             </div>
           </div>
         </div>
+
+
       </div>
     </section>
 
